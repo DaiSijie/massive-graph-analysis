@@ -1,11 +1,13 @@
-# Server flow coreset experiments
+# MapReduce Implementation of the Server Flow Coreset
 
-## Introduction
+This is a java implementation of the [server flow coreset](https://arxiv.org/abs/2011.06481), which is suitable for deployment on e.g. AWS.
+
+## How to Run the Code
+
 The source code is located in the ```code``` folder and consists of standard Java files. Various dataset cleaners are located in the ```datasets``` folder. 
 
-## Pre-requisites
-1. Make sure that you can run the Apache Hadoop word count example on your machine (https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Example:_WordCount_v1.0)
-2. Make sure that you can compile the code located in  the code folder. You will need the Apache Hadoop library as well as JGraphT (https://jgrapht.org). Alternatively, you can use the pre-compiled ```code/HadoopServerFlowCoreset.jar```. It uses one mapper and two reducers in the first round.
+1. Make sure that you can run the Apache Hadoop [word count example](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Example:_WordCount_v1.0) on your machine. You need to use java JDK11. 
+2. Make sure that you can compile the code located in  the code folder. You will need the Apache Hadoop library as well as JGraphT. Alternatively, you can use the pre-compiled ```code/HadoopServerFlowCoreset.jar```. It uses one mapper and two reducers in the first round.
 3. To verify that everything is set correctly, copy ```/datasets/testgraph.txt``` 
 to your input folder and run the program using the following command:
 ```/path/to/hadoop jar /path/to/compiled.jar /path/to/inputfolder /path/to/outputfolder```
@@ -36,3 +38,7 @@ We describe here how to aquire and clean the datasets. You can then run our prog
 ```python3 tissueclean.py /path/to/extracted.tsv /path/to/dest.txt```
 4. Make the graph bipartite using for instance ```bipartify.py```:
 ```python3 bipartify /path/to/cleaned.txt /path/to/bipartite.txt```
+
+## Code Highlights
+
+A custom implementation of the Ford-Fuklerson algorithm with stopping heuristic
