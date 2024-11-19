@@ -7,7 +7,7 @@ This is a java implementation of the [server flow coreset](https://arxiv.org/abs
 The source code is located in the ```code``` folder and consists of standard Java files. Various dataset cleaners are located in the ```datasets``` folder. 
 
 1. Make sure that you can run the Apache Hadoop [word count example](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Example:_WordCount_v1.0) on your machine. You need to use java JDK11. 
-2. Make sure that you can compile the code located in  the code folder. You will need the Apache Hadoop library as well as JGraphT. Alternatively, you can use the pre-compiled ```code/HadoopServerFlowCoreset.jar```. It uses one mapper and two reducers in the first round.
+2. Make sure that you can compile the code located in  the code folder. You will need the Apache Hadoop library as well as JGraphT. Alternatively, you can use the pre-compiled ```HadoopServerFlowCoreset.jar```. It uses one mapper and two reducers in the first round.
 3. To verify that everything is set correctly, copy ```/datasets/testgraph.txt``` 
 to your input folder and run the program using the following command:
 ```/path/to/hadoop jar /path/to/compiled.jar /path/to/inputfolder /path/to/outputfolder```
